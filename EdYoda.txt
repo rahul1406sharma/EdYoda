@@ -6,23 +6,31 @@
 
 Answer:
 
- function mergeArrays(keys, values) {
-        let CamelCaseArray = [];
+     function mergeArrays(keys, values) {
+        let CamelCaseKeyArray = []; let CamelCaseValueArray = [];
         for (let i = 0; i < keys.length; i++) {
-            CamelCaseArray.push(keys[i].replace(/-([a-z])/g, function (m, w) {
+            CamelCaseKeyArray.push(keys[i].replace(/-([a-z])/g, function (m, w) {
                 return w.toUpperCase();
 
             })
             )
         }
+        console.log(CamelCaseKeyArray);
+        for (let i = 0; i < values.length; i++) {
+            CamelCaseValueArray.push(values[i].replace(/-([a-z])/g, function (i, x) {
+                return x.toUpperCase();
+
+            })
+            )
+        }
+        console.log(CamelCaseValueArray);
+        let CamelCaseArray = CamelCaseValueArray.reduce(function (result, field, index) {
+            result[CamelCaseKeyArray[index]] = field;
+            return result;
+        }, {})
+       
+        console.log(CamelCaseArray);
     }
-
-
-    let mergedValues = values.reduce(function (result, field, index) {
-        result[CamelCaseArray[index]] = field;
-        return result;
-    }, {})
-
 
 
 
