@@ -6,14 +6,10 @@
 
 Answer:
 
-   function mergeArrays(keys, values) {
-        let CamelCaseKeyArray = stringCamelCasing(keys);
-        let CamelCaseValueArray = stringCamelCasing(values);
+
+    let mergeArrays = (keys, values) => {
         let mergedArray = mergeArray(stringCamelCasing(keys), stringCamelCasing(values));
-
-    
-
-        console.log(mergedArray);
+        console.info(mergedArray);
     }
 
     let stringCamelCasing = (theStringArray) => {
@@ -21,10 +17,8 @@ Answer:
         for (let i = 0; i < theStringArray.length; i++) {
             camelCasedStringArray.push(theStringArray[i].replace(/-([a-z])/g, function (m, w) {
                 return w.toUpperCase();
-
             })
             )
-
         }
         return camelCasedStringArray;
     }
