@@ -22,7 +22,7 @@ Answer:
         result[CamelCaseArray[index]] = field;
         return result;
     }, {})
-});
+
 
 
 
